@@ -10,7 +10,7 @@
             </div>
             <div class="select">
                 <select [(ngModel)]="params.size">
-                    <option *ngFor="let size of sizes" [value]="size">{{size}}px</option>
+                    <option *ngFor="let size of sizes" [ngValue]="size">{{size}}px</option>
                 </select>
             </div>
         </div>

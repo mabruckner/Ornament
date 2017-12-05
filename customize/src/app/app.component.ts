@@ -10,11 +10,17 @@ import { TextParam } from './textparam'
 export class AppComponent {
     title = 'Omaha Ornament Customizer';
     labels: [TextParam] = [{
-        font: "Roboto",
-        size: 25,
-        text: "text",
-        x: 200,
-        y: 200
+        text:"JACK",
+        font:"Fredericka the Great",
+        size:50,
+        x:154.0,
+        y:110.0
+    },{
+        text:"Santa's little helper",
+        font:"Satisfy",
+        size:15.0,
+        x:156.0,
+        y:126.0
     }];
     val = 0;
     modal = false;
