@@ -1,0 +1,18 @@
+[package]
+name = "customize"
+version = "0.1.0"
+authors = ["Mitchell Bruckner <mbruckner807@gmail.com>"]
+
+[dependencies]
+rocket = "0.3.3"
+rocket_codegen = "0.3.3"
+serde = "*"
+serde_derive = "*"
+serde_json = "*"
+ring = "0.11"
+rust-base58 = "0.0.4"
+
+[dependencies.rocket_contrib]
+version = "*"
+default-features = false
+features = ["json"]

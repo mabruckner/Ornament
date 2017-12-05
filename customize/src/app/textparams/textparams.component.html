@@ -1,0 +1,50 @@
+<div class="field is-horizontal">
+    <div class="field-body">
+        <div class="field has-addons">
+            <div class="select">
+<select [style.font-family]="params.font" [(ngModel)]="params.font">
+    <option *ngFor="let f of fonts" [style.font-family]="f" [value]="f">
+        {{f}}
+    </option>
+</select>
+            </div>
+            <div class="select">
+                <select [(ngModel)]="params.size">
+                    <option *ngFor="let size of sizes" [value]="size">{{size}}px</option>
+                </select>
+            </div>
+        </div>
+        <div class="field">
+        </div>
+    </div>
+</div>
+<div class="field is-horizontal">
+    <div class="field-body">
+        <div class="field">
+            <p class="control is-expanded">
+            <input class="input is-medium" type="text" placeholder="Enter Text" [(ngModel)]="params.text">
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="field is-horizontal">
+    <div class="field-body">
+        <div class="field">
+            <p class="control is-expanded">
+            <input class="input" type="range" min="0" max="350" [(ngModel)]="params.x">
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="field is-horizontal">
+    <div class="field-body">
+        <div class="field">
+            <p class="control is-expanded">
+            <input class="input" type="range" min="0" max="200" [(ngModel)]="params.y">
+            </p>
+        </div>
+    </div>
+</div>
+

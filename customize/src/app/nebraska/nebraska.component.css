@@ -1,0 +1,9 @@
+#nebraska {
+    fill: #eda;
+}
+
+.label {
+    fill: #960;
+    stroke: none;
+    text-rendering: geometricPrecision;
+}

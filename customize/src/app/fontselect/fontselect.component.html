@@ -1,0 +1,7 @@
+<div class="select">
+<select [style.font-family]="font" [(ngModel)]="font">
+    <option *ngFor="let f of fonts" [style.font-family]="f" [value]="f">
+        {{f}}
+    </option>
+</select>
+</div>

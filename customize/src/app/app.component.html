@@ -1,0 +1,67 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<section class="hero">
+    <div class="hero-body">
+        <div class="container">
+            <h1 class="title">Ornament Customizer</h1>
+            <h2 class="subtitle">Design your custom ornament</h2>
+        </div>
+    </div>
+</section>
+<div class="container is-fluid">
+<div class="columns">
+<div class="column is-two-thirds">
+    <div class="box">
+    <app-nebraska [labels]="labels"></app-nebraska>
+    <div class="field">
+        <p class="control">
+        <a (click)="submit()" class="button is-success">
+            get your code!
+        </a>
+    </div>
+    </div>
+</div>
+<div class="column">
+    <div class="box" *ngFor="let label of labels; let i=index; trackBy: tracker">
+        <div class="field is-grouped is-grouped-right">
+        <button class="delete" (click)="deleteVal(i)">
+        </button>
+        </div>
+        <app-textparams [(params)]="labels[i]"></app-textparams>
+    </div>
+    <div class="field is-grouped is-grouped-centered">
+        <button class="button is-expanded is-primary" (click)="addVal()">
+            <span class="icon">
+            <span class="fa fa-plus"></span>
+            </span>
+            <span>
+            add text field
+            </span>
+        </button>
+    </div>
+</div>
+</div>
+</div>
+
+<div class="modal" [class.is-active]="modal">
+    <div class="modal-background" (click)="close()"></div>
+    <div class="modal-content">
+        <div class="card">
+            <div class="card-content">
+                <p class="title">
+                We've got your design!
+                </p>
+                <p class="subtitle">Your ornament code is <span class="tag is-large">{{code}}</span></p>
+                <p>Just copy the code down and head on over to our <a href="/api/listing_redirect">Etsy listing</a>. When you're ready to check out just stick the code in the notes and we'll try to get your ornament to you as quickly as possible.<p>
+    <div class="field is-grouped is-grouped-right">
+        <p class="control">
+        <a (click)="close()" class="button is-success">
+            Ok, got it!
+        </a>
+    </p>
+    </div>
+                    
+            </div>
+        </div>
+    </div>
+    <button class="modal-close is-large" aria-label="close" (click)="close()"></button>
+</div>
