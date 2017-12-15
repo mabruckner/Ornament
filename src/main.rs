@@ -56,6 +56,12 @@ fn index() -> Option<NamedFile> {
     NamedFile::open(Path::new("customize/dist/index.html")).ok()
 }
 
+#[get("/get/<file>")]
+fn load(file: String) -> Option<NamedFile> {
+    let path = Path::new("output/").join(file).with_extension("json");
+    NamedFile::open(path).ok()
+}
+
 #[post("/register", format="application/json", data="<data>")]
 fn api(data: Json<Vec<Label>>) -> Json<Registration> {
     let record = Record { 
@@ -80,7 +86,7 @@ fn main() {
     let mut rock = rocket::ignite();
     let value = rock.config().extras.get("redirect").unwrap().as_str().unwrap().into();
     rock
-        .mount("/api/", routes![api, bounce])
+        .mount("/api/", routes![api, bounce, load])
         .mount("/", routes![index, base])
         .manage(Listing(value)).launch();
 }

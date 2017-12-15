@@ -25,12 +25,23 @@ export class AppComponent {
     val = 0;
     modal = false;
     code = "";
+    loading = "";
+    valid = true;
     
     constructor(private http: HttpClient) {}
     submit() {
         this.http.post("/api/register", this.labels).subscribe(data => {
             this.modal=true;
             this.code=data['code'];
+        });
+    }
+    load() {
+        console.log("loading "+this.loading);
+        this.http.get("/api/get/"+this.loading).subscribe(data => {
+            this.valid = true;
+            this.labels = <[TextParam]> data["labels"];
+        }, error => {
+            this.valid = false;
         });
     }
 

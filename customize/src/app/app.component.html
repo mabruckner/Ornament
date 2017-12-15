@@ -15,9 +15,20 @@
     <div class="field">
         <p class="control">
         <a (click)="submit()" class="button is-success">
-            Order it!
+            Order Your Design
         </a>
     </div>
+    <div class="field has-addons">
+        <div class="control">
+            <input [(ngModel)]="loading" class="input" type="text" placeholder="enter a code to load">
+        </div>
+        <div class="control">
+            <a class="button is-info" (click)="load()">
+                Load
+            </a>
+        </div>
+    </div>
+        <span *ngIf="!valid" class="tag is-danger">invalid code</span>
     </div>
 </div>
 <div class="column">
