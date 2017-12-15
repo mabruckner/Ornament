@@ -70,7 +70,7 @@ fn api(data: Json<Vec<Label>>) -> Json<Registration> {
     };
     let record = serde_json::to_string(&record).unwrap();
     let mut code = ring::digest::digest(&ring::digest::SHA256, record.as_bytes()).as_ref().to_base58();
-    code.truncate(10);
+    code.truncate(5);
     let mut file = File::create(String::from("output/") + &code + ".json").unwrap();
     file.write_all(record.as_bytes()).unwrap();
     Json(Registration { name: Some("hello".into()), code: code })
